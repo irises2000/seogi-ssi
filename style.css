@@ -3,3 +3,16 @@
     margin: 0;
     padding: 0;
 }
+
+a:link {
+    color : black;
+  }
+  a:visited {
+    color : black;
+  }
+  a:hover {
+    color : rgb(255, 0, 0);
+  }
+  a:active {
+    color : black;
+  }
