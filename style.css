@@ -40,7 +40,6 @@ body {
     height: 100vh;
     filter: blur(3px);
     text-align: center;
-    padding: 10px;
 
     overflow: auto;
     scrollbar-width: none;
