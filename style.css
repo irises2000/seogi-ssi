@@ -1,6 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background: linear-gradient(to bottom, #ffffff, #000000);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
 
     -webkit-user-select:none;
@@ -31,7 +33,6 @@ body {
 }
 
 .b1 {
-    background-color: rgb(255, 255, 255);
     filter: blur(3px);
     text-align: center;
     padding: 10px;
@@ -51,14 +52,14 @@ body {
 }
 
 a:link {
-    color : black;
+    color : rgb(255, 255, 255);
   }
   a:visited {
-    color : black;
+    color : rgb(255, 255, 255);
   }
   a:hover {
     color : rgb(255, 0, 0);
   }
   a:active {
-    color : black;
+    color : rgb(255, 255, 255);
   }
