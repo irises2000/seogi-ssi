@@ -8,7 +8,8 @@ body {
     -ms-user-select:none;
     user-select:none;
 
-    padding: 10px;
+    margin: 0;
+    padding: 0;
 }
 
 .parent{
@@ -21,6 +22,8 @@ body {
     display: none;  /* html이나 js를 이용해 parent에 mouseOver 이벤트를 추가해 display : block으로 바꿔준다. */
 }
 
+
+
 #letter {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -31,6 +34,13 @@ body {
     background-color: rgb(255, 255, 255);
     filter: blur(3px);
     text-align: center;
+    padding: 10px;
+}
+
+#menu {
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
 }
 
 .menulist {
