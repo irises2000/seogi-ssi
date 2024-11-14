@@ -40,7 +40,6 @@ th, td {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
-    padding: 10px;
 }
 
 .b1 {
@@ -52,6 +51,7 @@ th, td {
     overflow: auto;
     scrollbar-width: none;
     -ms-overflow-style: none; 
+    padding: 10px;
 
 }
 
