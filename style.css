@@ -26,7 +26,15 @@ body {
     display: none;  /* html이나 js를 이용해 parent에 mouseOver 이벤트를 추가해 display : block으로 바꿔준다. */
 }
 
-
+table {
+  width: 100%;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+}
+th, td {
+  border-bottom: 1px solid #444444;
+  padding: 0px;
+}
 
 #letter {
     display: grid;
