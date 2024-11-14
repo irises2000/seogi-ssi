@@ -1,8 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #ffffff, #000000);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background: linear-gradient(to bottom, #ffffff, #000000); */
+    /* background-repeat: no-repeat;
+    background-attachment: fixed; */
+    overflow: hidden;
 
 
     -webkit-user-select:none;
@@ -12,6 +13,7 @@ body {
 
     margin: 0;
     padding: 0;
+
 }
 
 .parent{
@@ -33,9 +35,15 @@ body {
 }
 
 .b1 {
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
     filter: blur(3px);
     text-align: center;
     padding: 10px;
+
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
 }
 
 #menu {
@@ -52,14 +60,14 @@ body {
 }
 
 a:link {
-    color : rgb(255, 255, 255);
+    color : rgb(0, 0, 0);
   }
   a:visited {
-    color : rgb(255, 255, 255);
+    color : rgb(0, 0, 0);
   }
   a:hover {
     color : rgb(255, 0, 0);
   }
   a:active {
-    color : rgb(255, 255, 255);
+    color : rgb(0, 0, 0);
   }
