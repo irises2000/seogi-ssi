@@ -1,5 +1,19 @@
+@font-face {
+  font-family: 'BookkMyungjo-Bd';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
     background: linear-gradient(to bottom, #ffffff00, #ff0202);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,18 +27,11 @@ body {
 
     margin: 0;
     padding: 0;
-
+    
+    font-family: 'Pretendard-Regular';
+    font-size: 19px;
 }
 
-.parent{
-  position: relative; /* relative를 주면 child의 absolute가 parent를 기준으로 적용된다. */
-                      /* relative를 주지 않으면 child의 absolute가 window를 기준으로 적용된다. */
-}
-
-.child {
-    position : absolute;
-    display: none;  /* html이나 js를 이용해 parent에 mouseOver 이벤트를 추가해 display : block으로 바꿔준다. */
-}
 
 table {
   width: 100%;
