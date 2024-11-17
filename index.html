@@ -1,78 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"
+    ></script>
     <title>seogi</title>
-</head>
-<body>
+  </head>
+  <body>
     <script src="script.js"></script>
-    <!-- <div id="wrap">
-        <div id="parent" class="parent">
-            xxxx.xx.xx
-            <div id="child" class="child">
-                <p>그날 발그레해진 네 볼이 생각나는 편지지를 골랐어. 따뜻한 걸 먹을 때 더 붉어지는 너의 입술도 닮았고. 내 앞에서는 마음껏 붉어지렴 난 네 앞에서 더 투명해질게 그럼 합쳐서 핑크가 되는 거야.</p>
-            </div>
-        </div>
-        
-    </div> -->
-    <table>
-        <tbody>
-          <tr>
-            <td>XXXX.XX.XX</td><td>HY</td>
-          </tr>
-          <tr>
-            <td>XXXX.XX.XX</td><td>JY</td>
-          </tr>
-          <tr>
-            <td>XXXX.XX.XX</td><td>HY</td>
-          </tr>
-        </tbody>
-      </table>
-    <div id="container">
-        <div id="letter">
-            <div class="b1">
-                <p>
-                    그날 발그레해진 네 볼이 생각나는 편지지를 골랐어. 따뜻한 걸 먹을 때 더 붉어지는 너의 입술도 닮았고. 내 앞에서는 마음껏 붉어지렴 난 네 앞에서 더 투명해질게 그럼 합쳐서 핑크가 되는 거야.
-                </p>
-                <p>
-                    XXXX.XX.XX
-                </p>        
-            </div>
-            <div class="b1">
-                <p>
-                    분명하고 또렷한 말로 생일 축하해.
-                    <br>
-                    손편지랍시고 글씨 쓰인 손을 사진 찍어주는 요행은 하지 않을게. 너에겐 무엇보다 가닿을 말들이 늘 아쉽기 때문이야. 하지만 언젠가 저런 짓궂은 요행도 해보면 좋겠다.
-                    <br>
-                    증명이란 것 말이야. 우리는 끊임없이 증명을 하고 있던 참 아닌가 싶었단다. 서로를 왜 좋아하는지에 대한 이렇고 저런 말들을 나누는 것. 이보다 증명다운 것이 있을까. 어느 날 말이 너무 가볍거나 너무 무거워진다면, 그때 다른 형태의 증명을 생각해보자.
-                    <br>
-                    어둑해지는 카페의 그 방에서 네가 나의 쪽을 향해 몸을 휙 돌려 앉았을 때, 술을 마셔 볼이 약간 발그레해진 네가 나풀거리며 밤길을 걸었을 때, 나는 네가 정말 좋아질 걸 이미 알아버렸단다.
-                    <br>
-                    연인이 소유의 관계라는 관점에는 절대 동의하지 않지만, 부끄럽게도 나는 너의 말이 그토록 갖고 싶었단다. 아마 그 욕망이 내가 고백을 결심한 이유와도 같을거야. 너는 참 갖고 싶은 사람이란 것을 알아주렴. 너의 꼬불거리는 글씨도 좋고, 나를 위해 조금 덜 꼬불거리는 글씨도 감사해.
-                    <br>
-                    서울대입구역에 자주 가는 카페가 있어. 세상과 연애하기. 들어보았니? 비록 지금은 리모델링해서 더는 그 장면을 볼 순 없지만 말이야. 불과 얼마 전까지만 해도 그 카페의 창가 쪽 벽면으느 10년도 더 된 손님들의 메모들로 가득 차 있었단다. 그 수많은 메모 중에 이런 문장이 있었어. '너와 보낼 다른 계절들이 기대돼.' 그 낭만 어린 문장을 나는 이제서야 공감할 수 있을 것 같아. 담백한 기대를 갖게 해주어 고마울 따름이야.
-                    <br>
-                    다정하고 사려깊은 친구야. 언젠가 내가 돌을 최고 구속에 커브볼로 던져도 무던히 받아낼 너의 모습도 기꺼이 기대할게. 예술적인 우리도, 예술적이지 못한 우리도, 무던하지 못한 나도, 돌을 던지는 너도, 모든 게 즐거울 것 같아! 그러니 네가 조금은 덜 두려워했으면 좋겠고, 조금은 덜 걱정했으면 좋겠다는 마음이야.
-                    <br>
-                    이만, 인터뷰 준비는 미루고 풀벌레 우는 밤에 편지 쓰는 나였어. 이제는 정말 인터뷰를 준비하러 가야겠다. 너의 응원에 어느 정도는 보답해야 하니까.
-                    <br>
-                    안녕이야.            
-                </p>
-                <p>
-                    2024.09.22
-                </p>       
-            </div>
-        </div>
 
-        <div id="menu">
-            <ul class="menulist">
-                <li><a href="https://en.wikipedia.org/wiki/Iris_(plant)" target="_blank">6: 384:1b, Britannica.</a></li>
-                <li><a href="https://lionaire.notion.site/133b9ed57d8e80ae9228d041ead64f8a?pvs=4" target="_blank">디자이너 백과사전</a></li>
-                <li><a href="archive.html" target="_blank">letter</a></li>
-            </ul>
+    <div class="grid-container" id="spreadsheet-data"></div>
+
+    <script type="text/javascript">
+      var public_spreadsheet_url =
+        "https://docs.google.com/spreadsheets/d/13kWyDNR5larvdzYubROyb9KlqocmFr1_mxDmWAWbqHA/gviz/tq?tqx=out:csv";
+
+      function init() {
+        Papa.parse(public_spreadsheet_url, {
+          download: true,
+          header: true,
+          complete: showInfo,
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", init);
+
+      function showInfo(results) {
+    var data = results.data;
+    var dataLength = data.length;
+    console.log(data);
+
+    // 1. date만 수직으로 나열
+    var htmlContent = "";
+    
+    for (var i = 0; i < dataLength; i++) {
+        // 'content'의 줄바꿈 문자(\n)를 <br>로 변환
+        var contentWithLineBreaks = data[i].content.replace(/(?:\r\n|\r|\n)/g, "<br>");
+        
+        // 각 date를 클릭할 수 있는 항목으로 출력
+        htmlContent += `<div class="date-box" id="date-box-${i}">
+                            <div class="date" id="date-${i}" style="cursor: pointer;">
+                                ${data[i].date}
+                            </div>
+                            <div class="details" id="details-${i}" style="display: none;">
+                                <p>${contentWithLineBreaks}</p>
+                            </div>
+                        </div>`;
+    }
+
+    // 해당 내용을 페이지에 삽입
+    document.getElementById("spreadsheet-data").innerHTML = htmlContent;
+
+    // 2. 클릭 이벤트 리스너 추가
+    for (let i = 0; i < dataLength; i++) {
+        document.getElementById(`date-${i}`).addEventListener('click', function () {
+            var detailsEl = document.getElementById(`details-${i}`);
+            // 내용이 숨겨져 있으면 보이게 하고, 보이면 숨기도록 설정
+            if (detailsEl.style.display === "none") {
+                detailsEl.style.display = "block";
+            } else {
+                detailsEl.style.display = "none";
+            }
+        });
+    }
+}
+    </script>
+
+    <div id="container">
+      <div id="letter">
+        <div class="b1">
+          <p>
+            그날 발그레해진 네 볼이 생각나는 편지지를 골랐어. 따뜻한 걸 먹을 때
+            더 붉어지는 너의 입술도 닮았고. 내 앞에서는 마음껏 붉어지렴 난 네
+            앞에서 더 투명해질게 그럼 합쳐서 핑크가 되는 거야.
+          </p>
+          <p>XXXX.XX.XX</p>
         </div>
-    </div>    
-</body>
+        <div class="b1">
+          <p>
+            분명하고 또렷한 말로 생일 축하해.
+            <br />
+            손편지랍시고 글씨 쓰인 손을 사진 찍어주는 요행은 하지 않을게. 너에겐
+            무엇보다 가닿을 말들이 늘 아쉽기 때문이야. 하지만 언젠가 저런 짓궂은
+            요행도 해보면 좋겠다.
+            <br />
+            증명이란 것 말이야. 우리는 끊임없이 증명을 하고 있던 참 아닌가
+            싶었단다. 서로를 왜 좋아하는지에 대한 이렇고 저런 말들을 나누는 것.
+            이보다 증명다운 것이 있을까. 어느 날 말이 너무 가볍거나 너무
+            무거워진다면, 그때 다른 형태의 증명을 생각해보자.
+            <br />
+            어둑해지는 카페의 그 방에서 네가 나의 쪽을 향해 몸을 휙 돌려 앉았을
+            때, 술을 마셔 볼이 약간 발그레해진 네가 나풀거리며 밤길을 걸었을 때,
+            나는 네가 정말 좋아질 걸 이미 알아버렸단다.
+            <br />
+            연인이 소유의 관계라는 관점에는 절대 동의하지 않지만, 부끄럽게도
+            나는 너의 말이 그토록 갖고 싶었단다. 아마 그 욕망이 내가 고백을
+            결심한 이유와도 같을거야. 너는 참 갖고 싶은 사람이란 것을 알아주렴.
+            너의 꼬불거리는 글씨도 좋고, 나를 위해 조금 덜 꼬불거리는 글씨도
+            감사해.
+            <br />
+            서울대입구역에 자주 가는 카페가 있어. 세상과 연애하기. 들어보았니?
+            비록 지금은 리모델링해서 더는 그 장면을 볼 순 없지만 말이야. 불과
+            얼마 전까지만 해도 그 카페의 창가 쪽 벽면은 10년도 더 된 손님들의
+            메모들로 가득 차 있었단다. 그 수많은 메모 중에 이런 문장이 있었어.
+            '너와 보낼 다른 계절들이 기대돼.' 그 낭만 어린 문장을 나는 이제서야
+            공감할 수 있을 것 같아. 담백한 기대를 갖게 해주어 고마울 따름이야.
+            <br />
+            다정하고 사려깊은 친구야. 언젠가 내가 돌을 최고 구속에 커브볼로
+            던져도 무던히 받아낼 너의 모습도 기꺼이 기대할게. 예술적인 우리도,
+            예술적이지 못한 우리도, 무던하지 못한 나도, 돌을 던지는 너도, 모든
+            게 즐거울 것 같아! 그러니 네가 조금은 덜 두려워했으면 좋겠고, 조금은
+            덜 걱정했으면 좋겠다는 마음이야.
+            <br />
+            이만, 인터뷰 준비는 미루고 풀벌레 우는 밤에 편지 쓰는 나였어. 이제는
+            정말 인터뷰를 준비하러 가야겠다. 너의 응원에 어느 정도는 보답해야
+            하니까.
+            <br />
+            안녕이야.
+          </p>
+          <p>2024.09.22</p>
+        </div>
+      </div>
+
+      <div id="menu">
+        <ul class="menulist">
+          <li>
+            <a href="https://en.wikipedia.org/wiki/Iris_(plant)" target="_blank"
+              >6: 384:1b, Britannica.</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://lionaire.notion.site/133b9ed57d8e80ae9228d041ead64f8a?pvs=4"
+              target="_blank"
+              >디자이너 백과사전</a
+            >
+          </li>
+          <li><a href="archive.html" target="_blank">letter</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>
