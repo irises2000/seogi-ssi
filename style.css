@@ -36,10 +36,6 @@ body {
   display: flex;
 }
 
-.grid-container {
-  text-align: justify;
-  
-}
 
 .date-list {
   /* width:10%; */
@@ -63,9 +59,8 @@ body {
 
 .content-box {
   width: 70%;
-  padding: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 
   overflow-y: auto; /* 콘텐츠 스크롤 활성화 */
   height: 100vh; /* 고정 높이 */
