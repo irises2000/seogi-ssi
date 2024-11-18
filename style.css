@@ -56,7 +56,7 @@ body {
   top: -100px; /* 시작 위치 */
   left: 50%;
   transform: translateX(-50%);
-  animation: dropStone 1s forwards; /* 애니메이션 종료 후 상태 유지 */
+  animation: dropStone 1.5s forwards; /* 애니메이션 종료 후 상태 유지 */
 }
 
 /* 돌 떨어지는 애니메이션 */
