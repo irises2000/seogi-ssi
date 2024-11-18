@@ -91,11 +91,11 @@ body {
   text-align: justify;
 }
 .date:hover {
-  color: #ff0202;
+  text-emphasis: circle;
 }
 
 .date.active {
-  color: #ff0202;
+  text-emphasis: circle;
 }
 
 .content-box {
