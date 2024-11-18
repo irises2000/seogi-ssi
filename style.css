@@ -62,7 +62,7 @@ body {
 /* 돌 떨어지는 애니메이션 */
 @keyframes dropStone {
   0% {
-    top: -100px;
+    top: -500px;
   }
   100% {
     top: 85vh; /* 아래로 떨어질 위치 */
