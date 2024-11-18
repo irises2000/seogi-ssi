@@ -40,9 +40,18 @@ body {
 .date-list {
   /* width:10%; */
   padding: 10px;
-  overflow-y: auto; /* 세로 스크롤 활성화 */
-  height: 100vh; /* 날짜 목록은 고정된 높이 */
+  overflow-y: auto; /* 콘텐츠 스크롤 활성화 */
+  height: 100vh; /* 고정 높이 */
 }
+
+.date-list::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
 .date {
   cursor: pointer;
   padding: 0px;
@@ -67,6 +76,15 @@ body {
 
   filter: blur(2.7px);
 }
+
+.content-box::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
 .content-box p {
   white-space: pre-wrap; /* Preserve line breaks */
 
