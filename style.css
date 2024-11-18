@@ -38,10 +38,14 @@ body {
 
 .grid-container {
   text-align: justify;
+  
 }
 
 .date-list {
+  /* width:10%; */
   padding: 10px;
+  overflow-y: auto; /* 세로 스크롤 활성화 */
+  height: 100vh; /* 날짜 목록은 고정된 높이 */
 }
 .date {
   cursor: pointer;
@@ -58,12 +62,19 @@ body {
 }
 
 .content-box {
-  /* width: 70%; */
+  width: 70%;
   padding: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  overflow-y: auto; /* 콘텐츠 스크롤 활성화 */
+  height: 100vh; /* 고정 높이 */
+
+  filter: blur(2.7px);
 }
 .content-box p {
   white-space: pre-wrap; /* Preserve line breaks */
-  filter: blur(2.7px);
+
 }
 
 
@@ -83,10 +94,6 @@ body {
   filter: blur(3px);
   text-align: justify;
 
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 10px;
 }
 
 .b1::-webkit-scrollbar {
