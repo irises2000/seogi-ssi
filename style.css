@@ -56,7 +56,7 @@ body {
   cursor: pointer;
   padding: 0px;
   margin: 5px 0;
-  text-align: center;
+  text-align: ju;
 }
 .date:hover {
   color: #ff0202;
@@ -93,29 +93,6 @@ body {
 
 
 
-
-
-#letter {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-}
-
-.b1 {
-  /* background-color: rgb(255, 255, 255); */
-  height: 100vh;
-  filter: blur(3px);
-  text-align: justify;
-
-}
-
-.b1::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-  background: transparent;
-  -webkit-appearance: none;
-}
 
 #menu {
   position: fixed;
