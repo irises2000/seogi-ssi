@@ -65,7 +65,7 @@ body {
     top: -500px;
   }
   100% {
-    top: 83vh; /* 아래로 떨어질 위치 */
+    top: 85vh; /* 아래로 떨어질 위치 */
   }
 }
 
@@ -117,7 +117,6 @@ body {
 
 .no-blur {
   filter: none !important;
-  font-weight: bold;
   color: #000000;
   font-size: 40px;
   display: inline-block;
@@ -138,7 +137,6 @@ body {
 
 .no-blur {
   filter: none !important;
-  font-weight: bold;
   color: #ff0000;
 }
 
