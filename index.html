@@ -18,6 +18,7 @@
       <div class="date-list" id="date-list"></div>
       <div class="content-box" id="content-box">
         <p id="content-text" style="display: none;"></p>
+        <p id="footnote" style="display: none;"></p>
       </div>
       <div class="rollingstone" id="rollingstone">
         <p id="stone" onclick="location.href='https://sjungyeon.github.io/lightness-and-heaviness/'">🪨</p>
@@ -45,6 +46,7 @@
         var dateList = document.getElementById("date-list");
         var contentBox = document.getElementById("content-box");
         var contentText = document.getElementById("content-text");
+        var footnoteText = document.getElementById("footnote");
   
         var currentVisibleId = null; // 현재 보이는 content를 추적
   
@@ -68,6 +70,7 @@
           // 같은 날짜를 클릭해도 'active' 제거, 내용 숨김
           if (currentVisibleId === clickedId) {
             contentText.style.display = "none";
+            footnoteText.style.display = "none";
             currentVisibleId = null;
 
              // 배경을 기본 상태로 복원
@@ -81,17 +84,24 @@
                 /(?:\r\n|\r|\n)/g,
                 "<br>"
               );
-
               var content = data[clickedId].content || ""; // content가 없을 경우 빈 문자열 처리
-              
               var contentWithHighlights = content.replace(
                 /𖤫/g,
                 '<span class="no-blur">𖤫</span>'
               );
 
+var footnote = data[clickedId].footnote || ""; // footnote가 없을 경우 빈 문자열 처리
+        var footnoteWithLineBreaks = footnote.replace(
+          /(?:\r\n|\r|\n)/g,
+          "<br>"
+        );
+
+
               contentText.innerHTML = contentWithLineBreaks;
               contentText.innerHTML = contentWithHighlights;
+              footnoteText.innerHTML = footnoteWithLineBreaks;
               contentText.style.display = "block";
+              footnoteText.style.display = "block";
               currentVisibleId = clickedId;
 
               if (data[clickedId].writer === "HY") {

@@ -37,7 +37,7 @@ body {
 }
 
 .rollingstone {
-  width:auto;
+  width: auto;
   height: 100vh;
   position: fixed;
   right: 30px;
@@ -123,12 +123,24 @@ body {
   display: inline-block;
 }
 
-.content-box p {
+#content-text {
   white-space: pre-wrap; /* Preserve line breaks */
   filter: blur(2.7px);
 }
 
+#footnote {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  filter: blur(1px);
+  font-style: italic;
+  font-size: smaller;
+}
 
+.no-blur {
+  filter: none !important;
+  font-weight: bold;
+  color: #ff0000;
+}
 
 #menu {
   position: fixed;
