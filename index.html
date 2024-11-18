@@ -73,7 +73,15 @@
                 "<br>"
               );
 
+              var content = data[clickedId].content || ""; // content가 없을 경우 빈 문자열 처리
+              
+              var contentWithHighlights = content.replace(
+                /𖤫/g,
+                '<span class="no-blur">𖤫</span>'
+              );
+
               contentText.innerHTML = contentWithLineBreaks;
+              contentText.innerHTML = contentWithHighlights;
               contentText.style.display = "block";
               currentVisibleId = clickedId;
             }
