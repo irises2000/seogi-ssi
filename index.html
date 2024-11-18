@@ -8,18 +8,22 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"
     ></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/quiple/hbios-sys@latest/hbios-sys.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/quiple/hbios-sys@latest/hbios-sys.css"
+    />
     <title>seogi</title>
   </head>
   <body>
-    <script src="script.js"></script>
-
-    <div class="grid-container" id="spreadsheet-data"></div>
-
-    <script type="text/javascript">
+    <div class="date-list" id="date-list"></div>
+    <div class="content-box" id="content-box">
+      <p id="content-text" style="display: none;"></p>
+    </div>
+  
+    <script>
       var public_spreadsheet_url =
         "https://docs.google.com/spreadsheets/d/13kWyDNR5larvdzYubROyb9KlqocmFr1_mxDmWAWbqHA/gviz/tq?tqx=out:csv";
-
+  
       function init() {
         Papa.parse(public_spreadsheet_url, {
           download: true,
@@ -27,52 +31,59 @@
           complete: showInfo,
         });
       }
-
+  
       window.addEventListener("DOMContentLoaded", init);
-
+  
       function showInfo(results) {
-    var data = results.data;
-    var dataLength = data.length;
-    console.log(data);
+        var data = results.data;
+        var dataLength = data.length;
+  
+        // 좌측에 날짜 나열
+        var dateList = document.getElementById("date-list");
+        var contentBox = document.getElementById("content-box");
+        var contentText = document.getElementById("content-text");
+  
+        var currentVisibleId = null; // 현재 보이는 content를 추적
+  
+        for (var i = 0; i < dataLength; i++) {
+          var dateDiv = document.createElement("div");
+          dateDiv.className = "date";
+          dateDiv.id = `date-${i}`;
+          dateDiv.textContent = data[i].date;
+  
+          dateDiv.addEventListener("click", function (event) {
+            var clickedId = event.target.id.split("-")[1];
+  
+            // 모든 날짜에서 'active' 클래스 제거
+          var allDates = document.querySelectorAll(".date");
+          allDates.forEach(function (date) {
+            date.classList.remove("active");
+          });
 
-    // 1. date만 수직으로 나열
-    var htmlContent = "";
-    
-    for (var i = 0; i < dataLength; i++) {
-        // 'content'의 줄바꿈 문자(\n)를 <br>로 변환
-        var contentWithLineBreaks = data[i].content.replace(/(?:\r\n|\r|\n)/g, "<br>");
-        
-        // 각 date를 클릭할 수 있는 항목으로 출력
-        htmlContent += `<div class="date-box" id="date-box-${i}">
-                            <div class="date" id="date-${i}" style="cursor: pointer;">
-                                ${data[i].date}
-                            </div>
-                            <div class="details" id="details-${i}" style="display: none;">
-                                <p>${contentWithLineBreaks}</p>
-                            </div>
-                        </div>`;
-    }
+          // 같은 날짜를 클릭해도 'active' 제거, 내용 숨김
+          if (currentVisibleId === clickedId) {
+            contentText.style.display = "none";
+            currentVisibleId = null;
+          } else {
+            // 클릭한 날짜에 'active' 클래스 추가
+            event.target.classList.add("active");
 
-    // 해당 내용을 페이지에 삽입
-    document.getElementById("spreadsheet-data").innerHTML = htmlContent;
-
-    // 2. 클릭 이벤트 리스너 추가
-    for (let i = 0; i < dataLength; i++) {
-        document.getElementById(`date-${i}`).addEventListener('click', function () {
-            var detailsEl = document.getElementById(`details-${i}`);
-            // 내용이 숨겨져 있으면 보이게 하고, 보이면 숨기도록 설정
-            if (detailsEl.style.display === "none") {
-                detailsEl.style.display = "block";
-            } else {
-                detailsEl.style.display = "none";
+              var contentWithLineBreaks = data[clickedId].content.replace(
+                /(?:\r\n|\r|\n)/g,
+                "<br>"
+              );
+              contentText.innerHTML = contentWithLineBreaks;
+              contentText.style.display = "block";
+              currentVisibleId = clickedId;
             }
-        });
-    }
-}
+          });
+  
+          dateList.appendChild(dateDiv);
+        }
+      }
     </script>
-    
 
-    <div id="container">
+    <!-- <div id="container">
       <div id="letter">
         <div class="b1">
           <p>
@@ -126,7 +137,7 @@
           </p>
           <p>2024.09.22</p>
         </div>
-      </div>
+      </div> -->
 
       <div id="menu">
         <ul class="menulist">
