@@ -57,6 +57,8 @@
           dateDiv.addEventListener("click", function (event) {
             var clickedId = event.target.id.split("-")[1];
   
+
+            
             // 모든 날짜에서 'active' 클래스 제거
           var allDates = document.querySelectorAll(".date");
           allDates.forEach(function (date) {
@@ -67,9 +69,13 @@
           if (currentVisibleId === clickedId) {
             contentText.style.display = "none";
             currentVisibleId = null;
-          } else {
-            // 클릭한 날짜에 'active' 클래스 추가
-            event.target.classList.add("active");
+
+             // 배경을 기본 상태로 복원
+        document.body.style.backgroundColor = ""; 
+        removeBackgroundOverlay(); // 기존에 생성한 오버레이 제거
+      } else {
+        // 클릭한 날짜에 'active' 클래스 추가
+        event.target.classList.add("active");
 
               var contentWithLineBreaks = data[clickedId].content.replace(
                 /(?:\r\n|\r|\n)/g,
@@ -87,11 +93,41 @@
               contentText.innerHTML = contentWithHighlights;
               contentText.style.display = "block";
               currentVisibleId = clickedId;
+
+              if (data[clickedId].writer === "HY") {
+          document.body.style.backgroundColor = "transparent"; // 배경색을 투명하게 처리
+          addBackgroundOverlay(); // 흰색 오버레이 추가
+        } else {
+          document.body.style.backgroundColor = "";  // 기본 배경으로 복원
+          removeBackgroundOverlay(); // 기존에 생성한 오버레이 제거
+        }
             }
           });
   
           dateList.appendChild(dateDiv);
         }
+      }
+      // 배경 오버레이 추가 함수
+        function addBackgroundOverlay() {
+          var overlay = document.createElement("div");
+          overlay.id = "background-overlay";
+          overlay.style.position = "absolute";
+          overlay.style.top = "0";
+          overlay.style.left = "0";
+          overlay.style.width = "100%";
+          overlay.style.height = "100%";
+          overlay.style.backgroundColor = "white";
+          overlay.style.zIndex = "-100"; // 그라디언트 위에 표시되도록 설정
+          overlay.style.opacity = "0.8"; // 반투명으로 설정
+          document.body.appendChild(overlay);
+        }
+
+        // 배경 오버레이 제거 함수
+        function removeBackgroundOverlay() {
+          var overlay = document.getElementById("background-overlay");
+          if (overlay) {
+            document.body.removeChild(overlay);
+          }
       }
     </script>
 
