@@ -36,6 +36,38 @@ body {
   display: flex;
 }
 
+.rollingstone {
+  width:auto;
+  height: 100vh;
+  position: fixed;
+  right: 30px;
+  cursor: grab;
+}
+/* 
+.rollingstone {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+} */
+
+#stone {
+  font-size: 50px;
+  position: absolute;
+  top: -100px; /* 시작 위치 */
+  left: 50%;
+  transform: translateX(-50%);
+  animation: dropStone 2s ease-out forwards; /* 애니메이션 종료 후 상태 유지 */
+}
+
+/* 돌 떨어지는 애니메이션 */
+@keyframes dropStone {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 85vh; /* 아래로 떨어질 위치 */
+  }
+}
 
 .date-list {
   /* width:10%; */
