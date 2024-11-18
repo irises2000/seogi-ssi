@@ -1,67 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/quiple/hbios-sys@latest/hbios-sys.css"
-    />
-    <title>seogi</title>
-  </head>
-  <body>
-      <div class="date-list" id="date-list"></div>
-      <div class="content-box" id="content-box">
-        <p id="content-text" style="display: none;"></p>
-        <p id="footnote" style="display: none;"></p>
-      </div>
-      <div class="rollingstone" id="rollingstone">
-        <p id="stone" onclick="location.href='https://sjungyeon.github.io/lightness-and-heaviness/'">🪨</p>
-      </div>
-  
-    <script>
-      var public_spreadsheet_url =
-        "https://docs.google.com/spreadsheets/d/13kWyDNR5larvdzYubROyb9KlqocmFr1_mxDmWAWbqHA/gviz/tq?tqx=out:csv";
-  
-      function init() {
-        Papa.parse(public_spreadsheet_url, {
-          download: true,
-          header: true,
-          complete: showInfo,
-        });
-      }
-  
-      window.addEventListener("DOMContentLoaded", init);
-  
-      function showInfo(results) {
-        var data = results.data;
-        var dataLength = data.length;
-  
-        // 좌측에 날짜 나열
-        var dateList = document.getElementById("date-list");
-        var contentBox = document.getElementById("content-box");
-        var contentText = document.getElementById("content-text");
-        var footnoteText = document.getElementById("footnote");
-  
-        var currentVisibleId = null; // 현재 보이는 content를 추적
-  
-        for (var i = 0; i < dataLength; i++) {
-          var dateDiv = document.createElement("div");
-          dateDiv.className = "date";
-          dateDiv.id = `date-${i}`;
-          dateDiv.textContent = data[i].date;
-  
-          dateDiv.addEventListener("click", function (event) {
-            var clickedId = event.target.id.split("-")[1];
-  
 
-            
-            // 모든 날짜에서 'active' 클래스 제거
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/quiple/hbios-sys@latest/hbios-sys.css" />
+  <title>seogi</title>
+</head>
+
+<body>
+  <div class="date-list" id="date-list"></div>
+  <div class="content-box" id="content-box">
+    <p id="content-text" style="display: none;"></p>
+    <p id="footnote" style="display: none;"></p>
+  </div>
+  <div class="rollingstone" id="rollingstone">
+    <p id="stone" onclick="location.href='https://sjungyeon.github.io/lightness-and-heaviness/'">🪨</p>
+  </div>
+
+  <script>
+    var public_spreadsheet_url =
+      "https://docs.google.com/spreadsheets/d/13kWyDNR5larvdzYubROyb9KlqocmFr1_mxDmWAWbqHA/gviz/tq?tqx=out:csv";
+
+    function init() {
+      Papa.parse(public_spreadsheet_url, {
+        download: true,
+        header: true,
+        complete: showInfo,
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", init);
+
+    function showInfo(results) {
+      var data = results.data;
+      var dataLength = data.length;
+
+      // 좌측에 날짜 나열
+      var dateList = document.getElementById("date-list");
+      var contentBox = document.getElementById("content-box");
+      var contentText = document.getElementById("content-text");
+      var footnoteText = document.getElementById("footnote");
+
+      var currentVisibleId = null; // 현재 보이는 content를 추적
+
+      for (var i = 0; i < dataLength; i++) {
+        var dateDiv = document.createElement("div");
+        dateDiv.className = "date";
+        dateDiv.id = `date-${i}`;
+        dateDiv.textContent = data[i].date;
+
+        dateDiv.addEventListener("click", function (event) {
+          var clickedId = event.target.id.split("-")[1];
+
+
+
+          // 모든 날짜에서 'active' 클래스 제거
           var allDates = document.querySelectorAll(".date");
           allDates.forEach(function (date) {
             date.classList.remove("active");
@@ -73,69 +69,65 @@
             footnoteText.style.display = "none";
             currentVisibleId = null;
 
-             // 배경을 기본 상태로 복원
-        document.body.style.backgroundColor = ""; 
-        removeBackgroundOverlay(); // 기존에 생성한 오버레이 제거
-      } else {
-        // 클릭한 날짜에 'active' 클래스 추가
-        event.target.classList.add("active");
+            // 배경을 기본 상태로 복원
+            document.body.style.backgroundColor = "";
+            removeBackgroundOverlay(); // 기존에 생성한 오버레이 제거
+          } else {
+            // 클릭한 날짜에 'active' 클래스 추가
+            event.target.classList.add("active");
 
-              var contentWithLineBreaks = data[clickedId].content.replace(
-                /(?:\r\n|\r|\n)/g,
-                "<br>"
-              );
-              var content = data[clickedId].content || ""; // content가 없을 경우 빈 문자열 처리
-              var contentWithHighlights = content.replace(
-                /𖤫/g,
-                '<span class="no-blur">𖤫</span>'
-              );
+            var contentWithLineBreaks = data[clickedId].content.replace(
+              /(?:\r\n|\r|\n)/g,
+              "<br>"
+            );
+            var content = data[clickedId].content || ""; // content가 없을 경우 빈 문자열 처리
+            var contentWithHighlights = content.replace(
+              /𓀐/g,
+              '<span class="no-blur" >𓀐</span>'
+            );
 
-var footnote = data[clickedId].footnote || ""; // footnote가 없을 경우 빈 문자열 처리
-        var footnoteWithLineBreaks = footnote.replace(
-          /(?:\r\n|\r|\n)/g,
-          "<br>"
-        );
+            var footnote = data[clickedId].footnote || ""; // footnote가 없을 경우 빈 문자열 처리
+            var footnoteWithLineBreaks = footnote.replace(
+              /(?:\r\n|\r|\n)/g,
+              "<br>"
+            );
 
 
-              contentText.innerHTML = contentWithLineBreaks;
-              contentText.innerHTML = contentWithHighlights;
-              footnoteText.innerHTML = footnoteWithLineBreaks;
-              contentText.style.display = "block";
-              footnoteText.style.display = "block";
-              currentVisibleId = clickedId;
+            contentText.innerHTML = contentWithLineBreaks;
+            contentText.innerHTML = contentWithHighlights;
+            footnoteText.innerHTML = footnoteWithLineBreaks;
+            contentText.style.display = "block";
+            footnoteText.style.display = "block";
+            currentVisibleId = clickedId;
 
-              if (data[clickedId].writer === "HY") {
-          document.body.style.backgroundColor = "transparent"; // 배경색을 투명하게 처리
-          console.log("HY");
-        } else {
-          document.body.style.backgroundColor = "";  // 기본 배경으로 복원
-          console.log("not HY");
-        }
+
+            if (data[clickedId].writer === "HY") {
+              document.body.style.backgroundColor = "transparent"; // 배경색을 투명하게 처리
+              console.log("HY");
+            } else {
+              document.body.style.backgroundColor = "";  // 기본 배경으로 복원
+              console.log("not HY");
             }
-          });
-  
-          dateList.appendChild(dateDiv);
-        }
-      }
-    </script>
+          }
+        });
 
-      <div id="menu">
-        <ul class="menulist">
-          <li>
-            <a href="https://en.wikipedia.org/wiki/Iris_(plant)" target="_blank"
-              >6: 384:1b, Britannica.</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://lionaire.notion.site/133b9ed57d8e80ae9228d041ead64f8a?pvs=4"
-              target="_blank"
-              >디자이너 백과사전</a
-            >
-          </li>
-          <li><a href="archive.html" target="_blank">letter</a></li>
-        </ul>
-      </div>
-    </div>
-  </body>
+        dateList.appendChild(dateDiv);
+      }
+    }
+  </script>
+
+  <div id="menu">
+    <ul class="menulist">
+      <li>
+        <a href="https://en.wikipedia.org/wiki/Iris_(plant)" target="_blank">6: 384:1b, Britannica.</a>
+      </li>
+      <li>
+        <a href="https://lionaire.notion.site/133b9ed57d8e80ae9228d041ead64f8a?pvs=4" target="_blank">디자이너 백과사전</a>
+      </li>
+      <li><a href="archive.html" target="_blank">letter</a></li>
+    </ul>
+  </div>
+  </div>
+</body>
+
 </html>

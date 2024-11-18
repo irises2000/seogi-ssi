@@ -115,16 +115,16 @@ body {
   -webkit-appearance: none;
 }
 
-.no-blur {
-  filter: none !important;
-  color: #000000;
-  font-size: 40px;
-  display: inline-block;
-}
-
 #content-text {
   white-space: pre-wrap; /* Preserve line breaks */
   filter: blur(2.7px);
+}
+
+.no-blur {
+  all: unset;
+  color: #ff0000;
+  font-size: 40px;
+  filter: none !important;
 }
 
 #footnote {
@@ -133,11 +133,6 @@ body {
   filter: blur(1px);
   font-style: italic;
   font-size: smaller;
-}
-
-.no-blur {
-  filter: none !important;
-  color: #ff0000;
 }
 
 #menu {
