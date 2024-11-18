@@ -73,8 +73,6 @@ body {
 
   overflow-y: auto; /* 콘텐츠 스크롤 활성화 */
   height: 100vh; /* 고정 높이 */
-
-  filter: blur(2.7px);
 }
 
 .content-box::-webkit-scrollbar {
@@ -87,7 +85,7 @@ body {
 
 .content-box p {
   white-space: pre-wrap; /* Preserve line breaks */
-
+  filter: blur(2.7px);
 }
 
 
