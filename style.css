@@ -65,7 +65,7 @@ body {
     top: -500px;
   }
   100% {
-    top: 85vh; /* 아래로 떨어질 위치 */
+    top: 83vh; /* 아래로 떨어질 위치 */
   }
 }
 
@@ -88,7 +88,7 @@ body {
   cursor: pointer;
   padding: 0px;
   margin: 5px 0;
-  text-align: ju;
+  text-align: justify;
 }
 .date:hover {
   color: #ff0202;
