@@ -96,38 +96,16 @@
 
               if (data[clickedId].writer === "HY") {
           document.body.style.backgroundColor = "transparent"; // 배경색을 투명하게 처리
-          addBackgroundOverlay(); // 흰색 오버레이 추가
+          console.log("HY");
         } else {
           document.body.style.backgroundColor = "";  // 기본 배경으로 복원
-          removeBackgroundOverlay(); // 기존에 생성한 오버레이 제거
+          console.log("not HY");
         }
             }
           });
   
           dateList.appendChild(dateDiv);
         }
-      }
-      // 배경 오버레이 추가 함수
-        function addBackgroundOverlay() {
-          var overlay = document.createElement("div");
-          overlay.id = "background-overlay";
-          overlay.style.position = "absolute";
-          overlay.style.top = "0";
-          overlay.style.left = "0";
-          overlay.style.width = "100%";
-          overlay.style.height = "100%";
-          overlay.style.backgroundColor = "white";
-          overlay.style.zIndex = "-100"; // 그라디언트 위에 표시되도록 설정
-          overlay.style.opacity = "0.8"; // 반투명으로 설정
-          document.body.appendChild(overlay);
-        }
-
-        // 배경 오버레이 제거 함수
-        function removeBackgroundOverlay() {
-          var overlay = document.getElementById("background-overlay");
-          if (overlay) {
-            document.body.removeChild(overlay);
-          }
       }
     </script>
 
