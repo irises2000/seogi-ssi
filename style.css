@@ -136,6 +136,12 @@ body {
   font-size: smaller;
 }
 
+#link-button {
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  font-size: smaller;
+}
+
 #menu {
   position: fixed;
   bottom: 40px;
