@@ -15,46 +15,53 @@
   <div class="content-box" id="content-box">
     <p id="content-text" style="display: none;"></p>
     <p id="footnote" style="display: none;"></p>
+    <a id="link-button" href="#" target="_blank" style="display: none; margin-top: 10px;">ref.𐃍</a>
   </div>
   <div class="rollingstone" id="rollingstone">
     <p id="stone" onclick="location.href='https://sjungyeon.github.io/lightness-and-heaviness/'">🪨</p>
   </div>
 
   <script>
+    // Google 스프레드시트에서 데이터를 가져올 CSV URL
     var public_spreadsheet_url =
       "https://docs.google.com/spreadsheets/d/13kWyDNR5larvdzYubROyb9KlqocmFr1_mxDmWAWbqHA/gviz/tq?tqx=out:csv";
 
+    // 페이지 로드 시 스프레드시트 데이터를 가져오는 함수 실행
     function init() {
       Papa.parse(public_spreadsheet_url, {
-        download: true,
-        header: true,
-        complete: showInfo,
+        download: true, // 데이터를 다운로드
+        header: true, // 첫 번째 행을 헤더로 사용
+        complete: showInfo, // 데이터 파싱 완료 시 호출할 함수
       });
     }
 
+    // DOM 콘텐츠 로드 완료 시 초기화 함수 실행
     window.addEventListener("DOMContentLoaded", init);
 
+    // 데이터를 받아 화면에 표시하는 함수
     function showInfo(results) {
-      var data = results.data;
-      var dataLength = data.length;
+      var data = results.data; // 스프레드시트의 데이터 배열
+      var dataLength = data.length; // 데이터의 길이
 
-      // 좌측에 날짜 나열
+      // DOM 요소 참조
       var dateList = document.getElementById("date-list");
       var contentBox = document.getElementById("content-box");
       var contentText = document.getElementById("content-text");
       var footnoteText = document.getElementById("footnote");
+      var linkButton = document.getElementById("link-button");
 
-      var currentVisibleId = null; // 현재 보이는 content를 추적
+      var currentVisibleId = null; // 현재 표시 중인 콘텐츠의 ID를 추적
 
+      // 데이터를 기반으로 날짜 목록 생성
       for (var i = 0; i < dataLength; i++) {
-        var dateDiv = document.createElement("div");
-        dateDiv.className = "date";
-        dateDiv.id = `date-${i}`;
-        dateDiv.textContent = data[i].date;
+        var dateDiv = document.createElement("div"); // 날짜를 위한 div 생성
+        dateDiv.className = "date"; // 날짜 CSS 클래스 추가
+        dateDiv.id = `date-${i}`; // 고유 ID 추가
+        dateDiv.textContent = data[i].date; // 텍스트로 날짜 설정
 
+        // 날짜를 클릭했을 때 실행되는 이벤트 리스너 추가
         dateDiv.addEventListener("click", function (event) {
           var clickedId = event.target.id.split("-")[1];
-
 
 
           // 모든 날짜에서 'active' 클래스 제거
@@ -67,26 +74,28 @@
           if (currentVisibleId === clickedId) {
             contentText.style.display = "none";
             footnoteText.style.display = "none";
+            linkButton.style.display = "none";
             currentVisibleId = null;
 
             // 배경을 기본 상태로 복원
             document.body.style.backgroundColor = "";
-            removeBackgroundOverlay(); // 기존에 생성한 오버레이 제거
+
           } else {
             // 클릭한 날짜에 'active' 클래스 추가
             event.target.classList.add("active");
+
+            var content = data[clickedId].content || ""; // content가 없을 경우 빈 문자열 처리
+            var footnote = data[clickedId].footnote || ""; // footnote가 없을 경우 빈 문자열 처리
+            var link = data[clickedId].link || ""; // link가 없을 경우 빈 문자열 처리
 
             var contentWithLineBreaks = data[clickedId].content.replace(
               /(?:\r\n|\r|\n)/g,
               "<br>"
             );
-            var content = data[clickedId].content || ""; // content가 없을 경우 빈 문자열 처리
             var contentWithHighlights = content.replace(
               /𓀐/g,
               '<span class="no-blur" >𓀐</span>'
             );
-
-            var footnote = data[clickedId].footnote || ""; // footnote가 없을 경우 빈 문자열 처리
             var footnoteWithLineBreaks = footnote.replace(
               /(?:\r\n|\r|\n)/g,
               "<br>"
@@ -98,11 +107,19 @@
             footnoteText.innerHTML = footnoteWithLineBreaks;
             contentText.style.display = "block";
             footnoteText.style.display = "block";
+
+            if (link) {
+              linkButton.href = link;
+              linkButton.style.display = "block";
+            } else {
+              linkButton.style.display = "none";
+            }
+
             currentVisibleId = clickedId;
 
 
             if (data[clickedId].writer === "HY") {
-              document.body.style.backgroundColor = "transparent"; // 배경색을 투명하게 처리
+              document.body.style.backgroundColor = ""; // 배경색을 투명하게 처리
               console.log("HY");
             } else {
               document.body.style.backgroundColor = "";  // 기본 배경으로 복원
