@@ -124,6 +124,7 @@ body {
   white-space: pre-wrap; /* Preserve line breaks */
   filter: blur(2.8px);
   padding-left: 3px;
+  padding-bottom: 3px;
 }
 
 .no-blur {
