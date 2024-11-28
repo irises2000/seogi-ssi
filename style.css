@@ -127,6 +127,25 @@ body {
   padding-bottom: 3px;
 }
 
+.reference {
+  color: rgb(255, 0, 0);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+/* 블러 처리에서 제외할 예외 클래스 */
+.no-blur {
+  filter: none !important;
+}
+
+.highlight {
+  background-color: rgb(255, 0, 0);
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 3px;
+}
+
 .no-blur {
   all: unset;
   color: #ff0000;

@@ -38,7 +38,6 @@
     // DOM 콘텐츠 로드 완료 시 초기화 함수 실행
     window.addEventListener("DOMContentLoaded", init);
 
-    // 데이터를 받아 화면에 표시하는 함수
     function showInfo(results) {
       var data = results.data; // 스프레드시트의 데이터 배열
       var dataLength = data.length; // 데이터의 길이
@@ -63,7 +62,6 @@
         dateDiv.addEventListener("click", function (event) {
           var clickedId = event.target.id.split("-")[1];
 
-
           // 모든 날짜에서 'active' 클래스 제거
           var allDates = document.querySelectorAll(".date");
           allDates.forEach(function (date) {
@@ -79,7 +77,6 @@
 
             // 배경을 기본 상태로 복원
             document.body.style.backgroundColor = "";
-
           } else {
             // 클릭한 날짜에 'active' 클래스 추가
             event.target.classList.add("active");
@@ -88,22 +85,20 @@
             var footnote = data[clickedId].footnote || ""; // footnote가 없을 경우 빈 문자열 처리
             var link = data[clickedId].link || ""; // link가 없을 경우 빈 문자열 처리
 
-            var contentWithLineBreaks = data[clickedId].content.replace(
-              /(?:\r\n|\r|\n)/g,
-              "<br>"
+            // content에서 '⑴', '⑵' 등 각주를 찾아 링크로 변환
+            var contentWithReferences = content.replace(
+              /⑴|⑵|⑶|⑷|⑸/g, // 각주 번호에 해당하는 패턴
+              function (match) {
+                return `<span class="reference no-blur" data-ref="${match}">${match}</span>`;
+              }
             );
-            var contentWithHighlights = content.replace(
-              /𓀐/g,
-              '<span class="no-blur" >𓀐</span>'
-            );
+
             var footnoteWithLineBreaks = footnote.replace(
               /(?:\r\n|\r|\n)/g,
               "<br>"
             );
 
-
-            contentText.innerHTML = contentWithLineBreaks;
-            contentText.innerHTML = contentWithHighlights;
+            contentText.innerHTML = contentWithReferences; // 변환된 content 적용
             footnoteText.innerHTML = footnoteWithLineBreaks;
             contentText.style.display = "block";
             footnoteText.style.display = "block";
@@ -117,20 +112,43 @@
 
             currentVisibleId = clickedId;
 
+            // '⑴' 등을 클릭했을 때 해당 각주 내용을 강조 및 스크롤
+            document.querySelectorAll(".reference").forEach(function (ref) {
+              ref.addEventListener("click", function () {
+                var refId = ref.getAttribute("data-ref"); // 각주의 번호 추출
 
-            if (data[clickedId].writer === "HY") {
-              document.body.style.backgroundColor = ""; // 배경색을 투명하게 처리
-              console.log("HY");
-            } else {
-              document.body.style.backgroundColor = "";  // 기본 배경으로 복원
-              console.log("not HY");
-            }
+                // footnote의 각 라인을 순회하며 매칭된 각주를 강조
+                var footnoteLines = footnote.split("\n");
+                var highlightedContent = footnoteLines
+                  .map(function (line) {
+                    if (line.startsWith(refId)) {
+                      return `<span class="highlight">${line}</span>`;
+                    }
+                    return line;
+                  })
+                  .join("<br>");
+
+                // footnoteText를 업데이트
+                footnoteText.innerHTML = highlightedContent;
+
+                // 스크롤 이동
+                var footnoteElement = document.querySelector(".highlight");
+                if (footnoteElement) {
+                  footnoteElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }
+              });
+            });
           }
         });
 
         dateList.appendChild(dateDiv);
       }
     }
+
+
   </script>
 
   <div id="menu">
