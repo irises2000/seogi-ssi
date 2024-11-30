@@ -87,7 +87,7 @@
 
             // content에서 '⑴', '⑵' 등 각주를 찾아 링크로 변환
             var contentWithReferences = content.replace(
-              /❶|❷|❸|❹|❺|❻|❼|❽|❾/g, // 각주 번호에 해당하는 패턴
+              /❶|❷|❸|❹|❺|❻|❼|❽|❺/g, // 각주 번호에 해당하는 패턴
               function (match) {
                 return `<span class="reference" data-ref="${match}">${match}</span>`;
               }
