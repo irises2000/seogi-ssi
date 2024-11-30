@@ -120,7 +120,7 @@ body {
 
 #content-text {
   white-space: pre-wrap; /* Preserve line breaks */
-  filter: blur(2.8px);
+  filter: blur(30px);
   padding: 3px;
   padding-bottom: 30px;
 }
