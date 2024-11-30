@@ -121,14 +121,15 @@ body {
 #content-text {
   white-space: pre-wrap; /* Preserve line breaks */
   filter: blur(2.8px);
+  padding: 3px;
   padding-bottom: 30px;
 }
 
 .reference {
   color: rgb(255, 0, 0);
-  text-decoration: underline;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 12px;
+  vertical-align: super;
 }
 
 .highlight {
