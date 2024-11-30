@@ -122,34 +122,22 @@ body {
 
 #content-text {
   white-space: pre-wrap; /* Preserve line breaks */
-  filter: blur(2.8px);
   padding-left: 3px;
   padding-bottom: 3px;
+  filter: blur(2.8px);
 }
 
 .reference {
-  color: rgb(255, 0, 0);
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 10px;
-}
-
-/* 블러 처리에서 제외할 예외 클래스 */
-.no-blur {
-  filter: none !important;
+  font-size: 10px; /* 특수문자 크기를 줄임 */
+  vertical-align: super; /* 텍스트의 위쪽에 배치 (각주 숫자처럼 보이도록) */
+  color: rgb(255, 0, 0); /* 특수문자의 색상 */
+  cursor: pointer; /* 클릭 가능한 스타일 */
 }
 
 .highlight {
-  background-color: rgb(255, 0, 0);
+  background-color: rgba(255, 0, 0, 0);
   font-weight: bold;
   padding: 2px;
-  border-radius: 3px;
-}
-
-.no-blur {
-  all: unset;
-  color: #ff0000;
-  font-size: 50px;
   filter: none !important;
 }
 
@@ -157,6 +145,7 @@ body {
   color: rgb(0, 0, 0);
   font-style: italic;
   font-size: smaller;
+  line-height: 1.3;
 }
 
 #link-button {
