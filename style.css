@@ -76,6 +76,7 @@ body {
   /* width:10%; */
   padding: 15px;
   padding-right: 7px;
+  padding-bottom: 30px;
   overflow-y: auto; /* 콘텐츠 스크롤 활성화 */
   height: 100vh; /* 고정 높이 */
   z-index: 100;
@@ -96,11 +97,13 @@ body {
   text-align: justify;
 }
 .date:hover {
-  text-emphasis-style: filled;
+  /* text-emphasis-style: filled; */
+  color: red;
 }
 
 .date.active {
-  text-emphasis-style: filled;
+  /* text-emphasis-style: filled; */
+  color: red;
 }
 
 .content-box {
