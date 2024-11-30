@@ -121,7 +121,7 @@ body {
 #content-text {
   white-space: pre-wrap; /* Preserve line breaks */
   filter: blur(2.8px);
-  padding: 3px;
+  padding: 3.5px;
   padding-bottom: 30px;
 }
 
