@@ -109,6 +109,7 @@ body {
 .content-box {
   width: 70%;
   padding: 15px;
+  padding-top: 0px !important;
   overflow-y: auto; /* 콘텐츠 스크롤 활성화 */
   height: 100vh; /* 고정 높이 */
 }
@@ -125,7 +126,7 @@ body {
   white-space: pre-wrap; /* Preserve line breaks */
   filter: blur(2.8px);
   padding: 3.5px;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
 .reference {
