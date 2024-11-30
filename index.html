@@ -132,14 +132,22 @@
                 footnoteText.innerHTML = highlightedContent;
 
                 // 스크롤 이동
-                var footnoteElement = document.querySelector(".highlight");
-                if (footnoteElement) {
-                  footnoteElement.scrollIntoView({ behavior: "smooth", block: "center" });
+                var contentBox = document.getElementById("content-box"); // content-box 요소 참조
+                var highlightElement = document.querySelector(".highlight"); // 강조된 요소
+
+                if (highlightElement) {
+                  // 강조된 요소의 위치 계산
+                  var elementOffsetTop = highlightElement.offsetTop;
+                  var contentBoxOffsetTop = contentBox.offsetTop;
+
+                  // content-box 내부에서의 상대적 위치로 스크롤 설정
+                  contentBox.scrollTop = elementOffsetTop - contentBoxOffsetTop;
                 }
               });
             });
           }
         });
+
 
         dateList.appendChild(dateDiv);
       }
