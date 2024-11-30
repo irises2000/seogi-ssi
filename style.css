@@ -134,7 +134,7 @@ body {
 
 .highlight {
   color: rgb(255, 0, 0);
-  font-weight: bold;
+  /* font-weight: bold; */
   border-radius: 3px;
 }
 
@@ -142,7 +142,7 @@ body {
   color: rgb(0, 0, 0);
   font-size: smaller;
   padding-bottom: 30px;
-  line-height: 1.5em;
+  line-height: 1.3em;
 }
 
 #link-button {
