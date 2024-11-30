@@ -96,11 +96,11 @@ body {
   text-align: justify;
 }
 .date:hover {
-  text-emphasis: circle;
+  text-emphasis-style: filled;
 }
 
 .date.active {
-  text-emphasis: circle;
+  text-emphasis-style: filled;
 }
 
 .content-box {
@@ -132,24 +132,16 @@ body {
 }
 
 .highlight {
-  background-color: rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
   font-weight: bold;
-  padding: 2px;
   border-radius: 3px;
-}
-
-.no-blur {
-  all: unset;
-  color: #ff0000;
-  font-size: 50px;
-  filter: none !important;
 }
 
 #footnote {
   color: rgb(0, 0, 0);
-  font-style: italic;
   font-size: smaller;
   padding-bottom: 30px;
+  line-height: 1.5em;
 }
 
 #link-button {
