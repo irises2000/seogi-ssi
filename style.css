@@ -131,6 +131,11 @@ body {
   /* padding-bottom: 30px; */
 }
 
+.drawing {
+  color: red;
+  font-size: 30px;
+}
+
 .reference {
   color: rgb(255, 0, 0);
   cursor: pointer;
