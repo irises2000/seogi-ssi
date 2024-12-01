@@ -141,8 +141,11 @@
                   var elementOffsetTop = highlightElement.offsetTop;
                   var contentBoxOffsetTop = contentBox.offsetTop;
 
-                  // content-box 내부에서의 상대적 위치로 스크롤 설정
-                  contentBox.scrollTop = elementOffsetTop - contentBoxOffsetTop;
+                  // content-box 내부에서의 상대적 위치로 스크롤 설정 (부드러운 애니메이션 적용)
+                  contentBox.scrollTo({
+                    top: elementOffsetTop - contentBoxOffsetTop,
+                    behavior: "smooth" // 부드러운 스크롤 애니메이션
+                  });
                 }
               });
             });
