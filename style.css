@@ -111,9 +111,10 @@ body {
 .content-box {
   width: 70%;
   padding: 15px;
-  padding-top: 0px !important;
   overflow-y: auto; /* 콘텐츠 스크롤 활성화 */
   height: 100vh; /* 고정 높이 */
+
+  font-size: 18px;
 }
 
 .content-box::-webkit-scrollbar {
@@ -126,8 +127,10 @@ body {
 
 #content-text {
   white-space: pre-wrap; /* Preserve line breaks */
-  filter: blur(2.8px);
-  padding: 3.5px;
+  filter: blur(3.3px);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 4px;
   /* padding-bottom: 30px; */
 }
 

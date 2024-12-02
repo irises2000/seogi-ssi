@@ -86,23 +86,37 @@
             var footnote = data[clickedId].footnote || ""; // footnote가 없을 경우 빈 문자열 처리
             var link = data[clickedId].link || ""; // link가 없을 경우 빈 문자열 처리
 
-            // content에서 '⑴', '⑵' 등 각주를 찾아 링크로 변환
+
+            // content에서 특정 문자를 하이라이트 처리 + 각주 변환을 한 번에 수행
             var contentWithReferences = content.replace(
-              /❶|❷|❸|❹|❺|❻|❼|❽/g, // 각주 번호에 해당하는 패턴
+              /𓀐/g,
+              '<span class="drawing" >𓀐</span>'
+            ).replace(
+
+              /❶|❷|❸|❹|❺|❻|❼|❽/g,
               function (match) {
                 return `<span class="reference" data-ref="${match}">${match}</span>`;
               }
             );
 
-            var footnoteWithLineBreaks = footnote.replace(
-              /(?:\r\n|\r|\n)/g,
-              "<br>"
-            );
+            var footnoteWithLineBreaks = footnote.replace(/(?:\r\n|\r|\n)/g, "<br>");
 
-            contentText.innerHTML = contentWithReferences; // 변환된 content 적용
+            // contentText에 삽입
+            contentText.innerHTML = contentWithReferences;
             footnoteText.innerHTML = footnoteWithLineBreaks;
-            contentText.style.display = "block";
-            footnoteText.style.display = "block";
+
+            if (contentWithReferences.trim()) {
+              contentText.style.display = "block"; // content가 있을 경우만 표시
+            } else {
+              contentText.style.display = "none"; // content가 없으면 숨김
+            }
+
+            if (footnoteWithLineBreaks.trim()) {
+              footnoteText.style.display = "block"; // footnote가 있을 경우만 표시
+            } else {
+              footnoteText.style.display = "none"; // footnote가 없으면 숨김
+            }
+
 
             if (link) {
               linkButton.href = link;
