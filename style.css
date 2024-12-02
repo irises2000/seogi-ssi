@@ -125,15 +125,12 @@ body {
   -webkit-appearance: none;
 }
 
-#content-text-wrapper {
-  filter: blur(3.3px);
-}
-
 #content-text {
   white-space: pre-wrap; /* Preserve line breaks */
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 4px;
+  filter: blur(3.3px);
   position: relative;
 }
 
@@ -146,15 +143,11 @@ body {
   color: rgb(0, 0, 0);
   cursor: pointer;
   font-size: 18px;
-  filter: none !important;
-  position: relative;
-  z-index: 1;
   /* vertical-align: super; */
 }
 
 .reference.active {
   color: red;
-  filter: none;
 }
 
 #footnote {
