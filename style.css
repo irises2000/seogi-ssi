@@ -130,7 +130,6 @@ body {
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 4px;
-  filter: blur(3.3px);
   /* padding-bottom: 30px; */
 }
 
@@ -148,6 +147,10 @@ body {
 
 .reference.active {
   color: red;
+}
+
+#content-text {
+  filter: blur(3.3px);
 }
 
 .highlight {
