@@ -117,6 +117,11 @@ body {
   font-size: 18px;
 }
 
+@media (min-width: 768px) {
+  .content-box {
+    width: 40%;
+  }
+}
 .content-box::-webkit-scrollbar {
   display: none;
   width: 0;
