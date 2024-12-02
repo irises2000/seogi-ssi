@@ -132,6 +132,15 @@
               ref.addEventListener("click", function () {
                 var refId = ref.getAttribute("data-ref"); // 각주의 번호 추출
 
+                // 기존 활성화된 특수문자를 비활성화
+                document.querySelectorAll(".reference.active").forEach(function (activeRef) {
+                  activeRef.classList.remove("active");
+                });
+
+                // 현재 클릭된 특수문자를 활성화
+                ref.classList.add("active");
+
+
                 // footnote의 각 라인을 순회하며 매칭된 각주를 강조
                 var footnoteLines = footnote.split("\n");
                 var highlightedContent = footnoteLines
