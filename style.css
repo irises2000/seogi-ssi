@@ -151,17 +151,16 @@ body {
   filter: blur(2px);
 }
 
-.highlight {
-  color: rgb(255, 0, 0);
-  /* font-weight: bold; */
-  border-radius: 3px;
-}
-
 #footnote {
   color: rgb(0, 0, 0);
   font-size: smaller;
   padding-bottom: 30px;
   line-height: 1.3em;
+}
+
+.highlight {
+  color: rgb(255, 0, 0);
+  /* font-weight: bold; */
 }
 
 #link-button {
