@@ -133,6 +133,7 @@ body {
   height: 100vh; /* 고정 높이 */
 
   font-size: 18px;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -176,7 +177,6 @@ body {
 #footnote {
   color: rgb(0, 0, 0);
   font-size: smaller;
-  padding-bottom: 30px;
   line-height: 1.3em;
 }
 
